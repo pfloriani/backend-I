@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Times - Catálogo de Times</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+  <body class="blue-grey lighten-5">
+    <nav class="blue-grey darken-3">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">Catálogo de Times</a>
+        <ul class="right">
+          <li><a href="/times">Times</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container section">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Times</span>
+              <% if (times.length > 0) { %>
+                <div class="responsive-table">
+                  <table class="highlight">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Estádio</th>
+                        <th>Cidade</th>
+                        <th>Ação</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% times.forEach((time) => { %>
+                        <tr>
+                          <td><%= time.id %></td>
+                          <td><%= time.nome %></td>
+                          <td><%= time.estadio %></td>
+                          <td><%= time.cidade %></td>
+                          <td><a href="/times/<%= time.id %>" class="btn-small blue-grey darken-2">Ver detalhes</a></td>
+                        </tr>
+                      <% }); %>
+                    </tbody>
+                  </table>
+                </div>
+              <% } else { %>
+                <p>Nenhum time cadastrado no momento.</p>
+              <% } %>
+            </div>
+            <div class="card-action">
+              <a href="/">Voltar à página inicial</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
